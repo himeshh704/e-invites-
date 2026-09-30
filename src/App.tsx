@@ -138,7 +138,7 @@ export function App() {
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           
           <a href="#" className="font-illustrated text-2xl text-[#800E13] font-extrabold tracking-tight">
-            Harleen <span className="font-instrument italic text-[#E9B44C] text-xl">&amp;</span> Jaspreet
+            Rajveer <span className="font-instrument italic text-[#E9B44C] text-xl">&amp;</span> Lavleen
           </a>
 
           <div className="hidden md:flex items-center gap-6">
@@ -241,11 +241,22 @@ export function App() {
 
           <div className="w-24 h-[2px] bg-[#800E13]/30 mx-auto my-2" />
 
-          {/* Couple Vector Artwork Centerpiece */}
+          {/* Couple Seated Anand Karaj Illustration Centerpiece */}
+          <div className="relative my-6 max-w-lg mx-auto rounded-2xl overflow-hidden border-3 border-[#800E13] shadow-[4px_6px_0px_#800E13]">
+            <img
+              src="/images/anand_karaj_palki_couple.png"
+              alt="Anand Karaj Couple Seated at Palki Sahib"
+              className="w-full h-auto object-cover filter brightness-[0.98]"
+            />
+            <div className="absolute bottom-2 right-2 bg-[#FFF8F0]/90 border border-[#800E13] px-3 py-1 rounded-full text-[10px] font-bold text-[#800E13] uppercase tracking-wider">
+              Anand Karaj Blessings ੴ
+            </div>
+          </div>
+
           <div className="flex items-end justify-center gap-6 my-4">
-            <BrideCharacter pose="waving" height={210} />
-            <span className="text-4xl animate-bounce mb-10">💖</span>
-            <GroomCharacter pose="waving" height={220} />
+            <BrideCharacter pose="waving" height={190} />
+            <span className="text-3xl animate-bounce mb-8">💖</span>
+            <GroomCharacter pose="waving" height={200} />
           </div>
 
           <div className="pt-2">
@@ -362,9 +373,9 @@ export function App() {
           <div className="bg-[#FFF3E4] border-3 border-[#800E13] rounded-3xl p-6 sm:p-10 shadow-[6px_8px_0px_#800E13] grid grid-cols-1 md:grid-cols-12 gap-8 items-center text-left">
             <div className="md:col-span-6 overflow-hidden rounded-2xl border-2 border-[#800E13] aspect-[4/3]">
               <img
-                src="/images/illustrated_gurdwara.png"
-                alt="Gurdwara Sahib"
-                className="w-full h-full object-cover filter brightness-[0.95]"
+                src="/images/golden_temple_amrit_sarovar.png"
+                alt="Sri Harmandir Sahib Golden Temple"
+                className="w-full h-full object-cover filter brightness-[0.98]"
               />
             </div>
             <div className="md:col-span-6 space-y-4">
