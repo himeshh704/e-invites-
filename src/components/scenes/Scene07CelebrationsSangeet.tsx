@@ -5,7 +5,7 @@ import { WEDDING_DATA } from '../../data/wedding';
 
 export const Scene07CelebrationsSangeet: React.FC = () => {
   return (
-    <section id="events" className="relative py-20 sm:py-28 px-6 bg-[#FEF9EB] text-[#4A2E2B] overflow-hidden border-y-2 border-[#E9B44C]">
+    <section id="events" className="relative py-20 sm:py-28 px-6 bg-[#FEF9EB] text-[#4A2E2B] overflow-hidden border-y-2 border-[#E9B44C] illustrated-paper-bg">
       <div className="max-w-5xl mx-auto text-center">
         
         {/* Header */}
@@ -28,17 +28,13 @@ export const Scene07CelebrationsSangeet: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Illustrated Event Mini-Scenes Grid */}
+        {/* Parallax Floating Event Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
           {WEDDING_DATA.events.map((event, index) => {
             return (
-              <motion.div
+              <div
                 key={event.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-[#FFF3E4] border-3 border-[#800E13] rounded-2xl p-6 sm:p-8 shadow-[5px_5px_0px_#800E13] space-y-4 relative overflow-hidden"
+                className="parallax-card bg-[#FFF3E4] border-3 border-[#800E13] rounded-2xl p-6 sm:p-8 shadow-[5px_6px_0px_#800E13] space-y-4 relative overflow-hidden group hover:-translate-y-1.5 transition-transform duration-300"
               >
                 {/* Scrapbook Tape Accent */}
                 <div className="absolute -top-3 left-6 w-20 h-5 tape-accent" />
@@ -56,12 +52,12 @@ export const Scene07CelebrationsSangeet: React.FC = () => {
                   <h3 className="font-illustrated text-2xl text-[#800E13] font-bold">
                     {event.name}
                   </h3>
-                  <p className="font-handwriting text-xl text-[#2C5E3B] font-bold">
+                  <p className="font-instrument italic text-xl text-[#2C5E3B]">
                     “{event.tagline}”
                   </p>
                 </div>
 
-                <div className="space-y-2 font-sans text-xs text-[#4A2E2B] pt-2 border-t-2 border-[#800E13]/20">
+                <div className="space-y-2 font-jost text-xs text-[#4A2E2B] pt-2 border-t-2 border-[#800E13]/20">
                   <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4 text-[#800E13]" />
                     <span className="font-semibold">{event.date}</span>
@@ -85,14 +81,14 @@ export const Scene07CelebrationsSangeet: React.FC = () => {
                     href={event.googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#9E2A2B] hover:bg-[#800E13] text-[#FFF8F0] font-illustrated text-xs uppercase rounded-full border-2 border-[#800E13] shadow-[2px_2px_0px_#800E13] transition-all"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#9E2A2B] hover:bg-[#800E13] text-[#FFF8F0] font-jost text-xs tracking-wider uppercase font-bold rounded-full border-2 border-[#800E13] shadow-[2px_2px_0px_#800E13] transition-all"
                   >
                     <span>VIEW LOCATION</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>
 
-              </motion.div>
+              </div>
             );
           })}
         </div>

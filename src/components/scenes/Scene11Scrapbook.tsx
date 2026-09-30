@@ -27,20 +27,16 @@ export const Scene11Scrapbook: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Scrapbook Polaroid Collage */}
+        {/* Parallax Tilt Shift Polaroid Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-          {WEDDING_DATA.scrapbook.map((item, index) => (
-            <motion.div
+          {WEDDING_DATA.scrapbook.map((item) => (
+            <div
               key={item.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className={`bg-[#FFF3E4] border-3 border-[#800E13] rounded-2xl p-4 pb-6 shadow-[5px_6px_0px_#800E13] relative transform hover:scale-105 transition-transform ${item.rotation}`}
+              className="parallax-tilt bg-[#FFF3E4] border-3 border-[#800E13] rounded-2xl p-4 pb-6 shadow-[6px_8px_0px_#800E13] relative transition-transform"
             >
               {/* Colored Tape Accent */}
               <div
-                className="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 opacity-70"
+                className="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 opacity-80"
                 style={{ backgroundColor: item.tapeColor, transform: 'rotate(-2deg)' }}
               />
 
@@ -55,10 +51,10 @@ export const Scene11Scrapbook: React.FC = () => {
               <p className="font-handwriting text-2xl text-[#800E13] font-bold text-center leading-snug">
                 {item.title}
               </p>
-              <span className="font-sans text-[10px] tracking-widest text-[#2C5E3B] font-bold block text-center mt-1">
+              <span className="font-jost text-[10px] tracking-widest text-[#2C5E3B] uppercase font-bold block text-center mt-1">
                 {item.date}
               </span>
-            </motion.div>
+            </div>
           ))}
         </div>
 
