@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-bg-ivory: #FFF8F0;
+    --color-cream: #FFF3E4;
+    --color-peach: #FFD6BA;
+    --color-pink: #F4ACB7;
+    --color-maroon: #800E13;
+    --color-maroon-light: #9E2A2B;
+    --color-green: #2C5E3B;
+    --color-mustard: #E9B44C;
+    --color-orange: #E76F51;
+    --color-blue: #D8E2DC;
+    --color-gold: #D4AF37;
+    --color-text-brown: #4A2E2B;
+
+    --font-handwriting: 'Caveat', cursive;
+    --font-display: 'Fredoka', sans-serif;
+    --font-serif: 'Philosopher', serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #FFF8F0;
+    color: #4A2E2B;
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* Custom Hand-Drawn Fonts */
+.font-handwriting {
+  font-family: 'Caveat', cursive;
+}
+
+.font-illustrated {
+  font-family: 'Fredoka', sans-serif;
+}
+
+.font-editorial-indian {
+  font-family: 'Philosopher', serif;
+}
+
+/* Illustrated Paper Grain & Card Styles */
+.illustrated-paper-bg {
+  background-color: #FFF8F0;
+  background-image: radial-gradient(#E9B44C 0.5px, transparent 0.5px);
+  background-size: 20px 20px;
+}
+
+.handdrawn-card {
+  background-color: #FFF3E4;
+  border: 2px solid #800E13;
+  border-radius: 16px;
+  box-shadow: 4px 6px 0px #800E13;
+}
+
+.handdrawn-card-green {
+  background-color: #E8F0EC;
+  border: 2px solid #2C5E3B;
+  border-radius: 16px;
+  box-shadow: 4px 6px 0px #2C5E3B;
+}
+
+.handdrawn-card-mustard {
+  background-color: #FEF9EB;
+  border: 2px solid #E9B44C;
+  border-radius: 16px;
+  box-shadow: 4px 6px 0px #E9B44C;
+}
+
+/* Scrapbook Tape Accent */
+.tape-accent {
+  background: rgba(233, 180, 76, 0.4);
+  transform: rotate(-3deg);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Soft Waving Keyframes for Illustrated Characters */
+@keyframes characterWave {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(6deg); }
+}
+
+@keyframes characterSway {
+  0%, 100% { transform: translateY(0px) rotate(-1deg); }
+  50% { transform: translateY(-5px) rotate(1deg); }
+}
+
+@keyframes floatElement {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-character-wave {
+  animation: characterWave 2.5s ease-in-out infinite;
+}
+
+.animate-character-sway {
+  animation: characterSway 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: floatElement 4s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF8F0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9E2A2B;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E9B44C;
+}
