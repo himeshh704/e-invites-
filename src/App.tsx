@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { Volume2, VolumeX, MapPin, Calendar, Clock, Sparkles, Send, Heart, ArrowUp, ExternalLink, Menu, X } from 'lucide-react';
 import { WEDDING_DATA } from './data/wedding';
@@ -10,6 +10,16 @@ export function App() {
   // Audio Player State
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  // Parallax Scroll Engine
+  const { scrollYProgress } = useScroll();
+  const bgEkOnkarY = useTransform(scrollYProgress, [0, 1], [0, -350]);
+  const heroParallaxY = useTransform(scrollYProgress, [0, 0.35], [0, 70]);
+  const heroScale = useTransform(scrollYProgress, [0, 0.35], [1, 0.94]);
+  const petalParallax1 = useTransform(scrollYProgress, [0, 1], [0, 600]);
+  const petalParallax2 = useTransform(scrollYProgress, [0, 1], [0, 900]);
+  const cloudLeftX = useTransform(scrollYProgress, [0, 1], [-40, 180]);
+  const cloudRightX = useTransform(scrollYProgress, [0, 1], [40, -180]);
 
   // RSVP Form State
   const [attending, setAttending] = useState<'yes' | 'no' | null>(null);
@@ -131,8 +141,30 @@ export function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FFF8F0] text-[#4A2E2B] selection:bg-[#9E2A2B] selection:text-[#FFF8F0] font-sans antialiased illustrated-paper-bg">
+    <div className="min-h-screen bg-[#FFF8F0] text-[#4A2E2B] selection:bg-[#9E2A2B] selection:text-[#FFF8F0] font-sans antialiased illustrated-paper-bg relative overflow-hidden">
       
+      {/* BACKGROUND PARALLAX MOTIFS & WATERMARKS */}
+      <motion.div
+        style={{ y: bgEkOnkarY }}
+        className="pointer-events-none fixed inset-0 z-0 flex items-center justify-center opacity-5 select-none"
+      >
+        <span className="text-[35vw] font-serif text-[#800E13]">ੴ</span>
+      </motion.div>
+
+      {/* Floating Parallax Flowers */}
+      <motion.div
+        style={{ y: petalParallax1 }}
+        className="pointer-events-none absolute top-40 left-8 z-10 text-4xl opacity-70 select-none hidden md:block"
+      >
+        🌸
+      </motion.div>
+      <motion.div
+        style={{ y: petalParallax2 }}
+        className="pointer-events-none absolute top-80 right-10 z-10 text-4xl opacity-70 select-none hidden md:block"
+      >
+        🌼
+      </motion.div>
+
       {/* 1. FLOATING NAVIGATION BAR (Matched to Artful Invites) */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#FFF8F0]/90 backdrop-blur-md border-b-2 border-[#800E13]/20 py-3.5 px-6 shadow-xs">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
@@ -204,8 +236,8 @@ export function App() {
         </div>
       )}
 
-      {/* 2. HERO SECTION — ARCH-FRAMED ILLUSTRATED WEDDING CARD */}
-      <header className="pt-28 pb-20 px-6 flex flex-col items-center justify-center min-h-[95vh] text-center">
+      {/* 2. HERO SECTION — ARCH-FRAMED ILLUSTRATED WEDDING CARD WITH PARALLAX */}
+      <header className="pt-28 pb-20 px-6 flex flex-col items-center justify-center min-h-[95vh] text-center relative z-20">
         
         {/* Floating Marigold Garlands Top Accent */}
         <div className="flex gap-4 items-center mb-6">
@@ -215,6 +247,7 @@ export function App() {
         </div>
 
         <motion.div
+          style={{ y: heroParallaxY, scale: heroScale }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -354,10 +387,19 @@ export function App() {
       </section>
 
       {/* 5. ANAND KARAJ & FOUR LAAVAN */}
-      <section id="anand-karaj" className="py-20 px-6 bg-[#FEF9EB] border-y-2 border-[#E9B44C] text-center">
-        <div className="max-w-4xl mx-auto space-y-8">
+      <section id="anand-karaj" className="py-20 px-6 bg-[#FEF9EB] border-y-2 border-[#E9B44C] text-center relative overflow-hidden">
+        
+        {/* Parallax Motion Clouds */}
+        <motion.div style={{ x: cloudLeftX }} className="pointer-events-none absolute top-10 left-6 text-4xl opacity-50 select-none">
+          ☁️
+        </motion.div>
+        <motion.div style={{ x: cloudRightX }} className="pointer-events-none absolute top-16 right-8 text-4xl opacity-50 select-none">
+          ☁️
+        </motion.div>
+
+        <div className="max-w-4xl mx-auto space-y-8 relative z-10">
           
-          <div className="w-14 h-14 rounded-full bg-[#800E13] border-2 border-[#E9B44C] mx-auto flex items-center justify-center text-[#FFF8F0] font-serif text-2xl">
+          <div className="w-14 h-14 rounded-full bg-[#800E13] border-2 border-[#E9B44C] mx-auto flex items-center justify-center text-[#FFF8F0] font-serif text-2xl shadow-sm">
             ੴ
           </div>
 
@@ -371,7 +413,7 @@ export function App() {
 
           {/* Gurdwara Illustrated Card */}
           <div className="bg-[#FFF3E4] border-3 border-[#800E13] rounded-3xl p-6 sm:p-10 shadow-[6px_8px_0px_#800E13] grid grid-cols-1 md:grid-cols-12 gap-8 items-center text-left">
-            <div className="md:col-span-6 overflow-hidden rounded-2xl border-2 border-[#800E13] aspect-[4/3]">
+            <div className="md:col-span-6 overflow-hidden rounded-2xl border-2 border-[#800E13] aspect-[4/3] relative group">
               <img
                 src="/images/golden_temple_amrit_sarovar.png"
                 alt="Sri Harmandir Sahib Golden Temple"
