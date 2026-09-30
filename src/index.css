@@ -36,17 +36,33 @@
   }
 }
 
-/* Custom Hand-Drawn Fonts */
+/* Custom Hand-Drawn & Reference Fonts */
 .font-handwriting {
   font-family: 'Caveat', cursive;
 }
 
 .font-illustrated {
-  font-family: 'Fredoka', sans-serif;
+  font-family: 'Abhaya Libre', Georgia, serif;
+}
+
+.font-instrument {
+  font-family: 'Instrument Serif', Georgia, serif;
+}
+
+.font-jost {
+  font-family: 'Jost', sans-serif;
 }
 
 .font-editorial-indian {
   font-family: 'Philosopher', serif;
+}
+
+/* Indian Architectural Arch Frame */
+.arch-frame {
+  border-top-left-radius: 120px;
+  border-top-right-radius: 120px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 }
 
 /* Illustrated Paper Grain & Card Styles */
